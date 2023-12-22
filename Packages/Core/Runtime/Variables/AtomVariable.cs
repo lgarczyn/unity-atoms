@@ -138,9 +138,22 @@ namespace UnityAtoms
             _value = RunPreChangeTransformers(_value);
         }
 
-        protected virtual void OnEnable()
+        /// <summary>
+        /// Resets the variable on creation or recompilation.
+        /// </summary>
+        /// <returns></returns>
+        protected virtual void Awake()
         {
             SetInitialValues();
+        }
+
+        /// <summary>
+        /// Trigger events on game start, domain reload or recompilation.
+        /// If in editor and fast enterPlayMode enabled, store instance for resetting on game start
+        /// </summary>
+        /// <returns></returns>
+        protected virtual void OnEnable()
+        {
             TriggerInitialEvents();
 
 #if UNITY_EDITOR
@@ -159,7 +172,7 @@ namespace UnityAtoms
             // NOTE: This will not be called when deleting the Atom from the editor.
             // Therefore, there might still be null instances, but even though not ideal,
             // it should not cause any problems.
-            // More info: https://issuetracker.unity3d.com/issues/ondisable-and-ondestroy-methods-are-not-called-when-a-scriptableobject-is-deleted-manually-in-project-window 
+            // More info: https://issuetracker.unity3d.com/issues/ondisable-and-ondestroy-methods-are-not-called-when-a-scriptableobject-is-deleted-manually-in-project-window
 #if UNITY_EDITOR
             _instances.Remove(this);
 #endif
