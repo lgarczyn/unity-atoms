@@ -39,5 +39,7 @@ namespace UnityAtoms
         /// </summary>
         [SerializeField]
         protected int _usage;
+
+        public abstract bool IsUnassigned;
     }
 }
