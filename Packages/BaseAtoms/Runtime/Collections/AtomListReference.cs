@@ -43,6 +43,8 @@ namespace UnityAtoms.BaseAtoms
             }
         }
 
+        public override bool IsUnassigned => List == null;
+
         /// <summary>
         /// Variable used if `Usage` is set to `LIST`.
         /// </summary>
