@@ -49,13 +49,9 @@ namespace UnityAtoms
 
         private void OnEnable()
         {
-            if (Base == null)
+            if(_inMemoryCopy == null)
             {
-                _inMemoryCopy = ScriptableObject.CreateInstance<V>();
-            }
-            else if(_inMemoryCopy == null)
-            {
-                _inMemoryCopy = Instantiate(Base);
+                _inMemoryCopy = Base ? Instantiate(Base) : ScriptableObject.CreateInstance<V>();
             }
             ImplSpecificSetup();
         }
