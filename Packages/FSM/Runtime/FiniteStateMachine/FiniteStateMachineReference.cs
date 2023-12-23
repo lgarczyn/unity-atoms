@@ -38,6 +38,8 @@ namespace UnityAtoms.FSM
             }
         }
 
+        public override bool IsUnassigned => Machine == null;
+
         /// <summary>
         /// Variable used if `Usage` is set to `FSM`.
         /// </summary>
