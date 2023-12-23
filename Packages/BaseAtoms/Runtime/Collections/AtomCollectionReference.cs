@@ -43,6 +43,8 @@ namespace UnityAtoms.BaseAtoms
             }
         }
 
+        public override bool IsUnassigned => Collection == null;
+
         /// <summary>
         /// Variable used if `Usage` is set to `COLLECTION`.
         /// </summary>
