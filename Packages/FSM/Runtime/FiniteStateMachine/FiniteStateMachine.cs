@@ -63,10 +63,9 @@ namespace UnityAtoms.FSM
         /// </summary>
         private string _currentFlatValue;
 
-        protected override void Awake()
+        protected override void SetInitialValues()
         {
-            base.Awake();
-
+            base.SetInitialValues();
             _isUpdatingState = false;
             _currentTransition = null;
             _resetOnNextTransitionCompleted = false;

@@ -181,7 +181,7 @@ namespace UnityAtoms
         /// <summary>
         /// Set initial values
         /// </summary>
-        private void SetInitialValues()
+        protected virtual void SetInitialValues()
         {
             _oldValue = InitialValue;
             _value = InitialValue;
